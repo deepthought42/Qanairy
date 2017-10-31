@@ -1,0 +1,52 @@
+/* 
+    main-color : #1c93e5;
+    btn hover color : #6227e7;
+*/  
+.btn {
+  background-color: #1c93e5;
+}
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background-color: #2388ce;
+}
+.service-item .item a:hover {
+  color: #1c93e5;
+}
+.owl-prev .fa:hover,
+.owl-next .fa:hover {
+  background-color: #1c93e5;
+}
+.faq .faqs a:hover {
+  color: #1c93e5;
+}
+.price-item .btn:hover {
+  background-color: #1c93e5;
+}
+.blog-posts .post-item .item-content a:hover {
+  color: #1c93e5;
+}
+.social ul li a:hover {
+  background-color: #1c93e5;
+}
+.copyright a:hover {
+  color: #1c93e5;
+}
+.navbar-toggle .icon,
+.navbar-toggle .icon::after, 
+.navbar-toggle .icon::before {
+  background-color: #1c93e5;
+}
+
+.mash {
+  background-color: #1c93e5 !important;
+}
+.single-post .readmore:hover {
+  color: #1c93e5;
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-collapse {
+    background-color: #1c93e5;
+  }
+}
