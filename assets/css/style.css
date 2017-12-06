@@ -922,8 +922,8 @@ p {
   -ms-box-shadow: 0 21px 65px 0 rgba(0, 0, 0, 0.12) ;
   -o-box-shadow: 0 21px 65px 0 rgba(0, 0, 0, 0.12) ;
   box-shadow: 0 21px 65px 0 rgba(0, 0, 0, 0.12) ;
-  color: #000;
-  background-color: #e9cb06;
+  color: #fff;
+  background-color: #fddc05;
 }
 .fixed-bg {
   background-attachment: fixed;
