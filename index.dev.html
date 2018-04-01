@@ -34,73 +34,89 @@
 
     </head>
     <body>
-        <header>
-            <!--
+			
+			 <header>
+            <div class="main-navigation">
+                <nav class="navbar navbar-fixed-top nav-scroll">
+                    <div class="container">
+                        <div class="row">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-action="#js-navbar-menu" aria-expanded="false">
+                                        <span aria-hidden="true" class="icon"></span>
+                                    </button>
+                                <!-- page brand -->
+                                <a class="navbar-brand" href="index.html"><img src="assets/images/qanairy_logo.png" alt="" class="img-responsive"></a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="js-navbar-menu">
+                                <ul class="nav navbar-nav navbar-right" id="navbar-nav">
+                                    <li><a href="index.html#home" data-scroll="home">Home</a></li>
+                                    <li><a href="index.html#steps" data-scroll="steps">How It Works</a></li>
+																	  <li><a href="index.html#features" data-scroll="features">Features</a></li>
+                                    <li><a href="index.html#trial" data-scroll="signup">Sign Up</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav><!-- /.navbar -->
+            </div>
+            
+            <!-- 
             |========================
             |   HOME CONTENT
             |========================
             -->
-
-            <div class="section home fixed-bg" data-anchor="home" id="home">
-                <div class="color-overlay">
-                    <div class="container">
-                        <div class="row section-separator">
-                            <div class="home-content">
-                              <img src="assets/images/qanairy_logo_300.png" alt="Qanairy logo"/>
-                                <h1 class="wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">Reinventing Automated Testing.</h1>
-                                <p class="wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">The artificial intelligence service that takes care of your user interface testing for you.</p>
-                                <div class="button">
-                                    <a href="#subcribe" class="btn btn_black wow fadeIn" data-wow-offset="30" data-wow-duration="1.0s" data-wow-delay="0.10s"> Sign Me Up! <i class="fa  fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="home section fixed-bg" data-anchor="home" id="home">
+							<div class="container">
+								<div class="row section-separator">
+										<div class="home-content">
+											
+											
+											<div class="col-md-6 col-sm-12 callout" >
+												<h1 class="wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">A Faster Way To&nbsp;QA</h1>
+												<p class="wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+													Qanairy automates quality assurance using artificial intelligence. In three simple steps you could be done with writing your user interface tests&nbsp;forever.
+												</p>
+												<div class="button">
+														<a href="http://app.qanairy.com/" class="btn  wow fadeIn" data-wow-offset="30" data-wow-duration="1.0s" data-wow-delay="0.10s"> Free Trial <i class="fa fa-long-arrow-right"></i></a>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-12 screenshot" >
+											<img class="" src="assets/images/imac_mockup.png" alt="Qanairy screenshot"/>
+											</div>
+										</div>
+								</div>
+							</div>
             </div>
         </header>
-        <!--
+        
+						
+
+			
+			 <!--
         |========================
-        |     ABOUT
-        |========================
-        -->
-        <section class="about black-bg" id="about">
-            <div class="container">
-                <div class="row section-separator">
-										<div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <div class="about-content wow fadeInRight"  data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                            <h2>We just made release day easier.</h2>
-                            <p>You don’t have the time to test for quality assurance. You don’t even have enough time to develop your&nbsp;products. 
-														<br><br>
-														Get time back with Qanairy. Using artificial intelligence Qanairy creates the entire catalogue of feature tests for your website or web app. Qanairy finds, writes, and maintains all of your user interface tests for you. See exactly where your bugs are and squash them.
-														</p>
-                        </div>
-                    </div>
-										<div class="col-md-1"></div>
-                </div>
-            </div>
-        </section>
-        <!--
-        |========================
-        |   SERVICE
+        |   How It Works
         |========================
         -->
 
-        <section class="service" id="service">
+        <section class="black-bg  service" id="steps">
             <div class="container">
                 <div class="row section-separator">
                     <div class="service-item">
+												<div class="section-title wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+													<h2 >How It Works</h2>
+												</div>
                         <div class="col-md-4">
                             <div class="item wow fadeInRight"  data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                <img src="assets/images/tcpldi-search.png" alt="">
+                                <img src="assets/images/start_discovery_y.png" alt="">
                                 <h3>Discover</h3>
-                                <p>Our AI identifies all of your UI feature tests so you are free to focus on what's most important, creating new&nbsp;features.</p>
+                                <p>Our time-saving AI identifies all of your UI tests for you so you can focus on creating new&nbsp;features.</p>
                                 <!--<a href="" class="">Learn More<i class="fa fa-long-arrow-right"></i></a> -->
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="item wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                <img src="assets/images/play-icon.png" alt="">
+                                <img src="assets/images/run_tests_y.png" alt="">
                                 <h3>Run</h3>
                                 <p>Use Qanairy to run tests individually, or create groups to execute tests&nbsp;together.</p>
                                 <!--<a href="" class="">Learn More<i class="fa fa-long-arrow-right"></i></a> -->
@@ -108,9 +124,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="item wow fadeInLeft" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                <img src="assets/images/verify-graphic.png" alt="">
+                                <img src="assets/images/verify_status_y.png" alt="">
                                 <h3>Verify</h3>
-                                <p>Simplify the QA process; tell our AI when your system changes and let it rewrite the tests for&nbsp;you.</p>
+                                <p>Simplify the QA process; tell our AI when your system changes and it will rewrite the tests for&nbsp;you.</p>
                                 <!--<a href="" class="">Learn More<i class="fa fa-long-arrow-right"></i></a> -->
                             </div>
                         </div>
@@ -118,37 +134,149 @@
                 </div>
             </div>
         </section>
-
-
-        <!--
+			
+			
+			
+			    <!--
         |========================
-        |   Comparison
+        |   Features
         |========================
         -->
-        <section class="comparison" id="service">
+        <section class="features" id="features">
             <div class="container">
                 <div class="row section-separator">
                     <div class="section-title wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                        <h2>There's nothing else like&nbsp;it.</h2>
+                        <h2>Features</h2>
                     </div>
-                    <div class="comparison-item">
-                        <div class="col-md-6">
-                            <div class="item wow fadeInRight"  data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                <img src="assets/images/them-process.png" alt="" style="width:100%; max-width:400px">
-                                <h1>Them</h1>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="item wow fadeInLeft" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                <img src="assets/images/us-process.png" alt="" style="width:100%; max-width:400px">
-                                <h1>Us</h1>
-                            </div>
-                        </div>
+                    <div class="features-item">
+											<div class="col-md-6 flex" >
+													<i class="feature-icon flex-none fa fa-play-circle" ></i>
+													<div class="flex-auto feature-text item">
+															<h4>No more writing tests</h4>
+															<p>No complicated training required. No complex test builders. No “live” test building. Real&nbsp;automation.</p>
+													</div>
+											</div>
+											<div class="col-md-6 flex" >
+													<i class="feature-icon flex-none fa fa-list-alt" ></i>
+													<div class="flex-auto feature-text item">
+															<h4>Easily maintain tests</h4>
+															<p>Run and verify your tests. Teach Qanairy about your system and it will update tests for you. Scale with the pace of development instead of struggling to keep&nbsp;up.</p>
+													</div>
+											</div>
+											<div class="col-md-6 flex" >
+													<i class="feature-icon flex-none fa fa-code" ></i>
+													<div class="flex-auto feature-text item">
+															<h4>Simplify testing</h4>
+															<p>Verify tests at a glance. Qanairy makes it easy to identify the path of each&nbsp;test.</p>
+													</div>
+											</div>
+											<div class="col-md-6 flex" >
+													<i class="feature-icon flex-none fa fa-laptop" ></i>
+													<div class="flex-auto feature-text item">
+															<h4>Ensure cross browser consistency</h4>
+															<p>Support for testing in Chrome and Firefox. Compare browser screenshots. More coming&nbsp;soon.</p>
+													</div>
+											</div>
+											<div class="col-md-6 flex" >
+													<i class="feature-icon flex-none fa fa-tags" ></i>
+													<div class="flex-auto feature-text item">
+															<h4>Organize tests</h4>
+															<p>Group tests by adding easily identifiable tags. Run groups of tests simultaneously with the click of a&nbsp;button.</p>
+													</div>
+											</div>
+											<div class="col-md-6 flex" >
+													<i class="feature-icon flex-none fa fa-bug" ></i>
+													<div class="flex-auto feature-text item">
+															<h4>Find bugs&nbsp;faster</h4>
+															<p>Run your tests simultaneously so you can get more done in less&nbsp;time.</p>
+													</div>
+											</div>
                     </div>
                 </div>
             </div>
         </section>
+			
+			
+        <!--
+        |========================
+        |     ABOUT
+        |========================
+        -->
+        <section class="about yellow-bg" id="about">
+            <div class="container">
+                <div class="row section-separator">
+										<div class="col-md-12 section-title wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                          <h2>We just made release day&nbsp;easier</h2>
+                    </div>
+										<div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="">
+                            <p>
+														Get time back with Qanairy. Using artificial intelligence Qanairy creates the entire catalogue of feature tests for your website or web app. Qanairy finds, writes, and maintains all of your user interface tests for you. See exactly where your bugs are and squash&nbsp;them.
+														</p>
+                        </div>
+                    </div>
+										<div class="col-md-1"></div>
+                </div>
+            </div>
+        </section>
+			
+			
+			        <!--
+        |========================
+        |     Free Trial
+        |========================
+        -->
+        <section class="about white-bg" id="trial">
+            <div class="container">
+                <div class="row section-separator">
+										<div class="col-md-12 section-title wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                          <h2>Sign up for a 90-day free&nbsp;trial</h2>
+                    </div>
+										<div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="trial_copy">
+                            <p>Start today and be that much closer to testing&nbsp;nirvana. 
+														<br><br><br>
+														</p>
+                        </div>
+                    </div>
+										<div class="col-md-1"></div>
+										<div class="button">
+														<a href="http://app.qanairy.com/" class="btn  wow fadeIn" data-wow-offset="30" data-wow-duration="1.0s" data-wow-delay="0.10s"> Free Trial <i class="fa  fa-long-arrow-right"></i></a>
+										</div>
+                </div>
+            </div>
+        </section>
+			
+			
+       			  <!--
+        |========================
+        |     Quote
+        |========================
+        -->
+        <section class="quote black-bg" id="quote">
+            <div class="container">
+                <div class="row section-separator">
+										<div class="col-md-12 section-title wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                          <h3>&ldquo;Be a yardstick of quality. Some people aren’t used to an environment where excellence is expected.&rdquo;</h3>
+                    </div>
+										<div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="">
+                            <p>
+														- Steve Jobs
+														</p>
+                        </div>
+                    </div>
+										<div class="col-md-1"></div>
+                </div>
+            </div>
+        </section>
 
+
+			
+			
         <!--
         |========================
         |   SUBSCRIPTION
@@ -156,12 +284,12 @@
         -->
 
         <!--End mc_embed_signup-->
-        <section class="black-bg subcribe" id="subcribe">
+        <section class="black-bg subcribe" id="signup">
             <div class="container">
                 <div class="row section-separator">
                     <div class="col-xs-12 subscribe-form">
                         <div class="section-title wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                            <h2>Sign up for our&nbsp;beta!</h2>
+                            <h2>Subscribe to our&nbsp;newsletter!</h2>
                         </div>
                         <form action="//qanairy.us14.list-manage.com/subscribe/post?u=225a784e2ef12feaedd499cd3&amp;id=c7b83df928" method="post" id="mailchimp-subscribe" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                           <div class="col-sm-2">
@@ -188,7 +316,8 @@
                                 <!--<input type="text" name="fullname" class="form-control col-md-4 wow fadeIn" id="subscriber-name" placeholder="Full Name" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s"> -->
 
                           </div>
-                        </div>
+                          <div class="col-sm-2">
+                          </div>
             						</form>
                         <div class="subscription-failed">
                         </div>
@@ -198,9 +327,27 @@
                 </div>
             </div>
         </section>
+			
+			  
+				<section class="black-bg footer" id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 left-footer">
+									<p>Qanairy &#169; 2018
+									</p>
+							</div>
+							<div class="col-md-6 right-footer">
+									<p><a href="http://app.qanairy.com/terms.html">Terms of Services</a>
+										&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="http://app.qanairy.com/privacy.html">Privacy Policy</a> 
+									</p>
+							</div>
+						</div>
+					</div>
+	      </section>
 
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
          <!-- FONT ICONS -->
         <link rel="stylesheet" href="assets/icons/font-awesome-4.4.0/css/font-awesome.min.css">
 
