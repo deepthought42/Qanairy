@@ -9,6 +9,10 @@
   }
 }
 @media only screen and (max-width: 1200px) {
+	h1 {
+  font-size: 46px;
+  line-height: 58px;
+}
   .section-title {
     padding: 0 150px;
   }
@@ -247,7 +251,7 @@
   }
   .navbar-toggle.active .icon::after,
   .navbar-toggle.active .icon::before {
-    background-color: #fff;
+    background-color: #fddc05;
   }
   .navbar-toggle.active {
     background-color: transparent;
@@ -353,7 +357,6 @@
     text-transform: uppercase;
     font-size: 17px;
     line-height: 26px;
-    font-family: 'Playfair Display', serif;
   }
   .navbar-collapse .nav li a:hover {
     color: white !important;

@@ -3,12 +3,12 @@
     btn hover color : #6227e7;
 */
 .btn {
-  background-color: #fddc05;
+  background-color: #4144bc;
 }
 .btn:hover,
 .btn:focus,
 .btn:active {
-  background-color: #fddc05;
+  background-color: #2b2e93;
 }
 .service-item .item a:hover {
   color: #fddc05;
@@ -49,6 +49,6 @@
 
 @media only screen and (max-width: 767px) {
   .navbar-collapse {
-    background-color: #fddc05;
+    background-color: rgba(0, 0, 0, 0.9);
   }
 }
