@@ -395,6 +395,16 @@
 | SMALL MOBILE
 |===================
 */
+
+@media only screen and (max-width: 500px) {
+  .btn {
+    width: 250px;
+    padding: 20px 30px;
+  }
+	.i_remove i{
+    display: none;
+  }
+}
 @media only screen and (max-width: 420px) {
   .btn {
     width: 250px;

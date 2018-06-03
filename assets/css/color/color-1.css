@@ -3,12 +3,12 @@
     btn hover color : #6227e7;
 */
 .btn {
-  background-color: #4144bc;
+  background-color: #ffdc05;
 }
 .btn:hover,
 .btn:focus,
 .btn:active {
-  background-color: #2b2e93;
+  background-color: #f7c20a;
 }
 .service-item .item a:hover {
   color: #fddc05;
