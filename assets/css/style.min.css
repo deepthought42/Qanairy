@@ -1390,7 +1390,7 @@ padding-right:30px;
 	text-align: center;
 }
 .pricing .section-separator{
-	padding-bottom:80px;
+	padding-bottom:0px !important;
 }
 
 .pricing img{
