@@ -85,13 +85,19 @@
 
   //handle form submission
   function stripeTokenHandler(token){
-    var form = document.getElementById('payment-form');
-    var hiddenInput = document.createElement('input');
-    hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', 'stripeToken');
-    hiddenInput.setAttribute('value', token.id);
-    form.appendChild(hiddenInput);
-    form.submit();
+
+    //submit token with ajax
+    $.ajax({
+      url: "/subscribe",
+      type: 'POST',
+      data: {plan : plan, source_token: token},
+      success: function(){
+        console.log("Successfully processed subscription");
+      },
+      onFailure: function() {
+        console.log("Error occurred while processing subscription request");
+      }
+    });
   }
 
   $("#signup").on('click', function(){
