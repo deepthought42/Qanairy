@@ -93,6 +93,7 @@
       data: {plan : plan, source_token: token},
       success: function(){
         console.log("Successfully processed subscription");
+        window.location.href = "https://app.qanairy.com";
       },
       onFailure: function() {
         console.log("Error occurred while processing subscription request");
@@ -104,7 +105,6 @@
     $.ajax(settings).done(function (response) {
       console.log(response);
       //process payment through stripe
-      //update user subscription
       stripe.createToken(card).then(function(result){
         if(result.error){
           //inform the user there was an error
@@ -112,6 +112,7 @@
           errorElement.textContent = result.error.message;
         }
         else {
+          //update user subscription
           //send token to the server
           stripeTokenHandler(result.token);
         }
