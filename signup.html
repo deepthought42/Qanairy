@@ -1,0 +1,64 @@
+<form id="signup">
+  <fieldset>
+    <legend>Sign up</legend>
+    <p>
+      <input type="email" id="signup-email" placeholder="Email" required/>
+    </p>
+    <p>
+      <input type="password" id="signup-password" placeholder="Password"
+             required/>
+    </p>
+    <p>
+      Free
+      <input type="hidden" id="subscription" required/>
+    </p>
+  </fieldset>
+  <fieldset id="payment-form">
+    <div class="form-row">
+      <label for="card-element">
+        Credit or debit card
+      </label>
+      <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+      </div>
+
+      <!-- Used to display Element errors. -->
+      <div id="card-errors" role="alert"></div>
+    </div>
+
+    <button>Submit Payment</button>
+  </fieldset>
+  <input type="submit" value="Sign up"/>
+
+</form>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://staging-qanairy.auth0.com/dbconnections/signup",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/x-www-form-urlencoded"
+    },
+    "data": {
+      "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+      "email": $('#email').val(),
+      "password": $('#password').val(),
+      "connection": "Username-Password-Authentication",
+      "user_metadata" :{
+        "subscription_plan": $('#subscription').val()
+      }
+    }
+  }
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+});
+</script>
