@@ -5,32 +5,32 @@
       <input type="email" id="signup-email" placeholder="Email" required/>
     </p>
     <p>
-      <input type="password" id="signup-password" placeholder="Password"
-             required/>
+      <input type="password" id="signup-password" placeholder="Password" required/>
     </p>
     <p>
       Free
       <input type="hidden" id="subscription" required/>
     </p>
   </fieldset>
-  <fieldset id="payment-form">
-    <div class="form-row">
-      <label for="card-element">
-        Credit or debit card
-      </label>
-      <div id="card-element">
-        <!-- A Stripe Element will be inserted here. -->
-      </div>
-
-      <!-- Used to display Element errors. -->
-      <div id="card-errors" role="alert"></div>
-    </div>
-
-    <button>Submit Payment</button>
-  </fieldset>
-  <input type="submit" value="Sign up"/>
 
 </form>
+
+<form id="payment-form">
+  <div class="form-row">
+    <label for="card-element">
+      Credit or debit card
+    </label>
+    <div id="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+
+    <!-- Used to display Element errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
+</form>
+
+<button id="signup" >Sign up</button>
+
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -58,7 +58,58 @@
     }
   }
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-});
+
+  var stripe = Stripe('pk_test_key');
+
+  var elements = stripe.elements();
+
+  var style = {
+    base: {
+      color: '#32325d',
+      lineHeight: '18px',
+      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4'
+      }
+    },
+    invalid: {
+      color: 'fa755a',
+      iconColor: '#fa755a'
+    }
+  };
+
+  var card = elements.create('card', {Style: style});
+  card.mount('#card-element');
+
+  //handle form submission
+  function stripeTokenHandler(token){
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
+    form.submit();
+  }
+
+  $("#signup").on('click', function(){
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      //process payment through stripe
+      //update user subscription
+      stripe.createToken(card).then(function(result){
+        if(result.error){
+          //inform the user there was an error
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+        }
+        else {
+          //send token to the server
+          stripeTokenHandler(result.token);
+        }
+      });
+    });
+  });
 </script>
