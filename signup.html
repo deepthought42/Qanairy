@@ -29,7 +29,7 @@
   </div>
 </form>
 
-<button id="signup" >Sign up</button>
+<button id="signup" onClick="signup_func()">Sign up</button>
 
 
 <script
@@ -39,27 +39,9 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://staging-qanairy.auth0.com/dbconnections/signup",
-    "method": "POST",
-    "headers": {
-      "content-type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-      "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
-      "email": $('#email').val(),
-      "password": $('#password').val(),
-      "connection": "Username-Password-Authentication",
-      "user_metadata" :{
-        "subscription_plan": $('#subscription').val()
-      }
-    }
-  }
 
 
-  var stripe = Stripe('pk_test_key');
+  var stripe = Stripe('pk_test_9QwakrlLpcLEYO5Ui0JoYHvC');
 
   var elements = stripe.elements();
 
@@ -80,7 +62,7 @@
     }
   };
 
-  var card = elements.create('card', {Style: style});
+  var card = elements.create('card', {style: style});
   card.mount('#card-element');
 
   //handle form submission
@@ -99,9 +81,29 @@
         console.log("Error occurred while processing subscription request");
       }
     });
-  }
+  };
 
-  $("#signup").on('click', function(){
+  var signup_func = function(){
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://staging-qanairy.auth0.com/dbconnections/signup",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "data": {
+        "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+        "email": $('#signup-email').val(),
+        "password": $('#signup-password').val(),
+        "connection": "Username-Password-Authentication",
+        "user_metadata" :{
+          "subscription_plan": $('#subscription').val()
+        }
+      }
+    }
+
+    console.log("signup clicked");
     $.ajax(settings).done(function (response) {
       console.log(response);
       //process payment through stripe
@@ -118,5 +120,7 @@
         }
       });
     });
-  });
+  };
+console.log("anything would be good "+signup_func());
+  $("#signup").click();
 </script>
