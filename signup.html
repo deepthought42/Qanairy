@@ -1,11 +1,11 @@
-<form id="signup">
+<form id="signup_form">
   <fieldset>
     <legend>Sign up</legend>
     <p>
-      <input type="email" id="signup-email" placeholder="Email" required/>
+      <input type="email" id="signup_email" placeholder="Email" required/>
     </p>
     <p>
-      <input type="password" id="signup-password" placeholder="Password" required/>
+      <input type="password" id="signup_password" placeholder="Password" required/>
     </p>
     <p>
       Free
@@ -29,17 +29,16 @@
   </div>
 </form>
 
-<button id="signup" onClick="signup_func()">Sign up</button>
-
+<button id="signup">Sign up</button>
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+<script src="https://cdn.auth0.com/js/auth0/9.8.1/auth0.min.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-
 
   var stripe = Stripe('pk_test_9QwakrlLpcLEYO5Ui0JoYHvC');
 
@@ -66,24 +65,40 @@
   card.mount('#card-element');
 
   //handle form submission
-  function stripeTokenHandler(token){
+  function stripeTokenHandler(stripe_token, access_token){
 
     //submit token with ajax
     $.ajax({
       url: "/subscribe",
       type: 'POST',
-      data: {plan : plan, source_token: token},
-      success: function(){
-        console.log("Successfully processed subscription");
-        window.location.href = "https://app.qanairy.com";
+      headers: {
+        "Authorization": "Bearer " +access_token
       },
-      onFailure: function() {
-        console.log("Error occurred while processing subscription request");
+      data: {plan : plan, source_token: stripe_token},
+      success: function(data){
+        console.log("Successfully processed subscription");
+        window.location.href = "https://app.qanairy.com?access_token"+access_token;
+      },
+      onFailure: function(err) {
+        console.log("Error occurred while processing subscription request "+err);
       }
     });
   };
 
-  var signup_func = function(){
+
+
+  var auth0 = new auth0.WebAuth({
+    domain: "staging-qanairy.auth0.com",
+    clientID:  "wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV",//"mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+    responseType: "token id_token",
+    audience: "https://staging-api.qanairy.com",
+    scope: "openid profile email read:domains delete:domains update:domains create:domains create:accounts read:accounts delete:accounts update:accounts read:tests update:tests read:groups update:groups create:groups delete:groups run:tests start:discovery read:actions"
+  });
+
+
+  $("#signup").on('click',  function(){
+    console.log("signup clicked");
+
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -94,20 +109,40 @@
       },
       "data": {
         "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
-        "email": $('#signup-email').val(),
-        "password": $('#signup-password').val(),
+        "email": $('#signup_email').val(),
+        "password": $('#signup_password').val(),
         "connection": "Username-Password-Authentication",
         "user_metadata" :{
           "subscription_plan": $('#subscription').val()
         }
       }
-    }
+    };
 
     console.log("signup clicked");
-    $.ajax(settings).done(function (response) {
-      console.log(response);
+
+    auth0.signupAndAuthorize(settings.data, function(err, res){
+      console.log("response :: "+err + "   :    " + Object.keys(res));
+      if(!error){
+        stripe.createToken(card).then(function(result){
+          if(result.error){
+            //inform the user there was an error
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+          }
+          else {
+            //update user subscription
+            //send token to the server
+            stripeTokenHandler(result.token, res.access_token);
+          }
+        });
+      }
+    });
+
+
+  //  $.ajax(settings).done(function (response) {
+  //    console.log(response);
       //process payment through stripe
-      stripe.createToken(card).then(function(result){
+      /*stripe.createToken(card).then(function(result){
         if(result.error){
           //inform the user there was an error
           var errorElement = document.getElementById('card-errors');
@@ -116,11 +151,10 @@
         else {
           //update user subscription
           //send token to the server
-          stripeTokenHandler(result.token);
+          stripeTokenHandler(result.token, response.access_token);
         }
       });
-    });
-  };
-console.log("anything would be good "+signup_func());
-  $("#signup").click();
+      */
+  //  });
+  });
 </script>
