@@ -8,7 +8,7 @@
       <input type="password" id="signup_password" placeholder="Password" required/>
     </p>
     <p>
-      Free
+      Pro
       <input type="hidden" id="subscription" required/>
     </p>
   </fieldset>
@@ -65,12 +65,14 @@
   card.mount('#card-element');
 
   //handle form submission
-  function stripeTokenHandler(stripe_token, access_token){
+  function stripeTokenHandler(stripe_token, access_token, plan){
 
     //submit token with ajax
     $.ajax({
-      url: "/subscribe",
+      url: "https://staging-api.qanairy.com/subscribe",
       type: 'POST',
+      datatype : "application/json",
+      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
       headers: {
         "Authorization": "Bearer " +access_token
       },
@@ -89,7 +91,7 @@
 
   var auth0 = new auth0.WebAuth({
     domain: "staging-qanairy.auth0.com",
-    clientID:  "wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV",//"mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+    clientID:  "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",//"wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV",
     responseType: "token id_token",
     audience: "https://staging-api.qanairy.com",
     scope: "openid profile email read:domains delete:domains update:domains create:domains create:accounts read:accounts delete:accounts update:accounts read:tests update:tests read:groups update:groups create:groups delete:groups run:tests start:discovery read:actions"
@@ -122,7 +124,7 @@
 
     auth0.signupAndAuthorize(settings.data, function(err, res){
       console.log("response :: "+err + "   :    " + Object.keys(res));
-      if(!error){
+      if(!err){
         stripe.createToken(card).then(function(result){
           if(result.error){
             //inform the user there was an error
@@ -132,7 +134,7 @@
           else {
             //update user subscription
             //send token to the server
-            stripeTokenHandler(result.token, res.access_token);
+            stripeTokenHandler(result.token, res.access_token, "pro");
           }
         });
       }
