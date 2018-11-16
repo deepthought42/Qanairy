@@ -99,7 +99,7 @@
 											Selected Plan
 										</div>
 										<p class="text-left">
-											Free
+											Basic - $99
 											<input type="hidden" id="subscription" required/>
 										</p>
 									</fieldset>
@@ -127,12 +127,11 @@
 										<div id="card-errors" role="alert"></div>
 									</div>
 								</form>
-</div>
+              </div>
 
-								<div class="col-md-8 col-sm-12 col-md-offset-2 ">
-								<button class="btn" id="signup">Sign up</button>
-
-									</div>
+							<div class="col-md-8 col-sm-12 col-md-offset-2 ">
+								<button class="btn" id="signup-button">Sign up</button>
+							</div>
 
 						</div>
 					</div>
@@ -254,16 +253,16 @@
     //submit token with ajax
     $.ajax({
       url: "https://staging-api.qanairy.com/subscribe",
-      type: 'POST',
+      type: 'PUT',
       datatype : "application/json",
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
       headers: {
         "Authorization": "Bearer " +access_token
       },
-      data: {plan : plan, source_token: stripe_token},
+      data: {plan : plan, source_token: stripe_token.id},
       success: function(data){
         console.log("Successfully processed subscription");
-        window.location.href = "https://app.qanairy.com?access_token"+access_token;
+        window.location.href = "https://staging-app.qanairy.com?access_token="+access_token;
       },
       onFailure: function(err) {
         console.log("Error occurred while processing subscription request "+err);
@@ -282,7 +281,7 @@
   });
 
 
-  $("#signup").on('click',  function(){
+  $("#signup-button").on('click',  function(){
     console.log("signup clicked");
 
     var settings = {
@@ -308,6 +307,7 @@
 
     auth0.signupAndAuthorize(settings.data, function(err, res){
       console.log("response :: "+err + "   :    " + Object.keys(res));
+      localStorage.setItem("access_token", res.accessToken);
       if(!err){
         stripe.createToken(card).then(function(result){
           if(result.error){
@@ -318,30 +318,11 @@
           else {
             //update user subscription
             //send token to the server
-            stripeTokenHandler(result.token, res.access_token, "pro");
+            stripeTokenHandler(result.token, res.accessToken, "pro");
           }
         });
       }
     });
-
-
-  //  $.ajax(settings).done(function (response) {
-  //    console.log(response);
-      //process payment through stripe
-      /*stripe.createToken(card).then(function(result){
-        if(result.error){
-          //inform the user there was an error
-          var errorElement = document.getElementById('card-errors');
-          errorElement.textContent = result.error.message;
-        }
-        else {
-          //update user subscription
-          //send token to the server
-          stripeTokenHandler(result.token, response.access_token);
-        }
-      });
-      */
-  //  });
   });
 </script>
 
