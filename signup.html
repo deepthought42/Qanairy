@@ -248,7 +248,7 @@
   card.mount('#card-element');
 
   //handle form submission
-  function stripeTokenHandler(stripe_token, access_token, plan){
+  function stripeTokenHandler(stripe_token, access_token, plan, id_token){
 
     //submit token with ajax
     $.ajax({
@@ -261,8 +261,12 @@
       },
       data: {plan : plan, source_token: stripe_token.id},
       success: function(data){
+        localStorage.setItem("access_token", access_token);
+
         console.log("Successfully processed subscription");
-        window.location.href = "https://staging-app.qanairy.com?access_token="+access_token;
+
+        //navigate user to app
+        window.location.href = "https://staging-app.qanairy.com?accessToken="+access_token+"&idToken="+id_token;
       },
       onFailure: function(err) {
         console.log("Error occurred while processing subscription request "+err);
@@ -279,7 +283,6 @@
     audience: "https://staging-api.qanairy.com",
     scope: "openid profile email read:domains delete:domains update:domains create:domains create:accounts read:accounts delete:accounts update:accounts read:tests update:tests read:groups update:groups create:groups delete:groups run:tests start:discovery read:actions"
   });
-
 
   $("#signup-button").on('click',  function(){
     console.log("signup clicked");
@@ -306,8 +309,6 @@
     console.log("signup clicked");
 
     auth0.signupAndAuthorize(settings.data, function(err, res){
-      console.log("response :: "+err + "   :    " + Object.keys(res));
-      localStorage.setItem("access_token", res.accessToken);
       if(!err){
         stripe.createToken(card).then(function(result){
           if(result.error){
@@ -318,7 +319,7 @@
           else {
             //update user subscription
             //send token to the server
-            stripeTokenHandler(result.token, res.accessToken, "pro");
+            stripeTokenHandler(result.token, res.accessToken, "pro", res.idToken);
           }
         });
       }
