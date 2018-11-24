@@ -6,12 +6,12 @@
     <head>
 
         <!-- TITLE OF SITE -->
-        <title>Qanairy - Pricing</title>
+        <title>Qanairy - Sign Up</title>
 
         <!-- Meta -->
         <meta charset="utf-8">
-        <meta name="description" content="Sign up for our FREE Beta today! Qanairy automates quality assurance by finding, building, and maintaining user interface tests with the power of artificial intelligence." />
-        <meta name="keywords" content="pricing, discovery, journey, price, model, plan, qa, quality assurance, automation, qa testing, ui testing, automated, automated qa, artificial intelligence, scripts, test scripts, SaaS, software, smoke, forms, link, regression, scriptless, AI, test, continuous integration, continuous testing, bugs, errors, feature, user interface, continuous deployment, testing, feature test, service," />
+        <meta name="description" content="Here at Qanairy we work hard and play hard. We are a team of passionate, determined individuals who collaborate together to achieve greatness." />
+        <meta name="keywords" content="qa, quality assurance, automation, qa testing, ui testing, automated, automated qa, artificial intelligence, scripts, test scripts, SaaS, software, smoke, forms, link, regression, scriptless, AI, test, continuous integration, continuous testing, bugs, errors, feature, user interface, continuous deployment, testing, feature test, service," />
         <meta name="developer" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -54,7 +54,6 @@
 																	  <li><a href="features.html" data-scroll="features">Why Use Qanairy</a></li>
 																		<li><a href="pricing.html" data-scroll="pricing">Pricing</a></li>
 																		<li><a href="about.html" data-scroll="about">About</a></li>
-																		<li><a href="http://blog.qanairy.com/" data-scroll="about" target="_blank">Blog</a></li>
 																		<li><a href="contact.html" data-scroll="contact">Contact</a></li>
                                 </ul>
                             </div>
@@ -65,147 +64,80 @@
 
 				  </header>
 
+
 			<main class="Site-content">
 
 				<!--
         |========================
-        |     PRICING
+        |     SIGNUP
         |========================
         -->
-        <section class="pricing white-bg" id="pricing">
-            <div class="container">
+        <section class="signup white-bg" id="signup">
+					<div class="container">
+						<div class="row section-separator">
 
+							<div class="col-md-offset-3 col-md-6  col-sm-offset-2 col-sm-8 col-xs-12">
+								<div class="">
+										<h3>Sign up</h3>
+		            </div>
 
+								<form id="signup_form">
+									<fieldset>
+										<div class="field-title">
+											Email
+										</div>
+										<p>
+											<input class="text-left form-control" type="email" id="signup_email" placeholder="Email" required/>
+										</p>
+										<div class="field-title">
+											Password
+										</div>
+										<p>
+											<input class="text-left form-control" type="password" id="signup_password" placeholder="Password" required/>
+										</p>
+										<div class="field-title">
+											Selected Plan
+										</div>
+										<p class="text-left">
+											Basic - $99
+											<input type="hidden" id="subscription" required/>
+										</p>
+									</fieldset>
+								</form>
 
+								<div class="">
+										<h3>Payment</h3>
+								</div>
+								<form id="payment-form">
+									<div class="form-row">
 
+										<div class="field-title float-left">
+											Credit or debit card
+										</div>
+										<div class="cc-title">
+											CVC
+										</div>
+										<div class="cc-title">
+											Expiration Date
+										</div>
+										<div id="card-element">
+											<!-- A Stripe Element will be inserted here. -->
+										</div>
+										<!-- Used to display Element errors. -->
+										<div id="card-errors" role="alert"></div>
+									</div>
+								</form>
+              </div>
 
-
-
-
-
-
-
-                <div class="row section-separator section-separator-first">
-                    <div class="section-title">
-                        <h1>Pricing </h1>
-                    </div>
-
-<div class="col-sm-12">
-	<div class="row">
-    <div id="pro_package" class="package equal-height-container col-sm-12 col-md-4">
-      <div class="planframe equal-height">
-        <h3 class="mb-2 mt-2 text-center">Starter</h3>
-				<h1 class=" dashboard__stats text-center">$0</h1>
-  			<div class="mb-4" style="flex-grow: 1;">
-					<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6  col-md-offset-0 col-md-12 price-container"  >
-						<div class="price-column flex"  >
-							<i class="price-icon flex-none fa fa-check" ></i>
-							<div class="flex-auto price-text item">
-									<p>20 Generated Tests</p>
+							<div class="col-md-8 col-sm-12 col-md-offset-2 ">
+								<button class="btn" id="signup-button">Sign up</button>
 							</div>
-						</div>
-						<div class="price-column flex"  >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>0 Test Runs</p>
-								</div>
-						</div>
-						<div class="price-column flex"  >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>Email support</p>
-								</div>
-						</div>
-						<div class="remove-991 price-column flex"  >
-								<div class="flex-auto price-text item">
-										<p class="">&nbsp;</p>
-								</div>
+
 						</div>
 					</div>
-        </div>
-        <button class="btn btn--primary" onclick="document.location.href='https://staging-app.qanairy.com'">
-          Select Plan
-        </button>
-      </div>
-    </div>
-    <div id="pro_package" class="package equal-height-container col-sm-12 col-md-4">
-  		<div class="planframe equal-height">
-  			<h3 class="mb-2 mt-2 text-center">Basic</h3>
-				<h1 class=" dashboard__stats text-center">$99</h1>
-  			<div class="mb-4" style="flex-grow: 1;">
-					<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6  col-md-offset-0 col-md-12 price-container"  >
-						<div class="price-column flex"  >
-							<i class="price-icon flex-none fa fa-check" ></i>
-							<div class="flex-auto price-text item">
-									<p>250 Generated Tests</p>
-							</div>
-						</div>
-						<div class="price-column flex" >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>500 Test Runs</p>
-								</div>
-						</div>
-						<div class="price-column flex"  >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>Auto Auth Testing</p>
-								</div>
-						</div>
-						<div class="price-column flex"  >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>Email support</p>
-								</div>
-						</div>
-					</div>
-        </div>
-        <button class="btn btn--primary" onclick="document.location.href='https://staging-marketing.qanairy.com/signup.html'">
-          Select Plan
-        </button>
-  		</div>
-    </div>
-    <div id="enterprise_package" class="package equal-height-container col-sm-12 col-md-4">
-  		<div class="planframe equal-height ">
-  			<h3 class="mb-2 mt-2 text-center">Premium</h3>
-    				<h1 class="remove-991 dashboard__stats text-center">&nbsp;</h1>
-      			<div class="mb-4" style="flex-grow: 1;">
-							<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6  col-md-offset-0 col-md-12 price-container"  >
-						<div class="price-column flex"  >
-							<i class="price-icon flex-none fa fa-check" ></i>
-							<div class="flex-auto price-text item">
-									<p>Unlimited Generated Tests</p>
-							</div>
-						</div>
-						<div class="price-column flex"  >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>Unlimited Test Runs</p>
-								</div>
-						</div>
-						<div class="price-column flex"  >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>Auto Auth Testing</p>
-								</div>
-						</div>
-						<div class="price-column flex"  >
-								<i class="price-icon flex-none fa fa-check" ></i>
-								<div class="flex-auto price-text item">
-										<p>24/7 phone support</p>
-								</div>
-						</div>
-					</div>
-        </div>
-        <a href="mailto:qanairy@qanairy.com?&subject=Qanairy%20Premium%20Plan%20Upgrade&body=Hi%20Qanairy,%0d%0dI%20would%20like%20to%20request%20a%20quote.%20Please%20have%20a%20sales%20representative%20reach%20out%20to%20me.%20Here%20are%20my%20details.%0d%0dName:%0d%0dPhone%20Number:%0d%0dCompany%20Name:%0d%0dCompany%20Website:%0d%0dNumber%20of%20employees%20dedicated%20to%20QA:%0d%0dMy%20product/service%20has%20a%20website,%20mobile%20site,%20web%20app,%20mobile%20app.%20Include%20all%20that%2apply:" rel="EMAIL"><button class=" align-middle btn btn--primary">
-        Request A Quote
-       </button></a>
-     </div>
-   </div>
-
-                </div>
-            </div>
         </section>
+
+			</main>
 
         <!--
         |========================
@@ -279,5 +211,121 @@
           ga('send', 'pageview');
 
         </script>
+
+
+
+			<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.auth0.com/js/auth0/9.8.1/auth0.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+
+  var stripe = Stripe('pk_test_9QwakrlLpcLEYO5Ui0JoYHvC');
+
+  var elements = stripe.elements();
+
+  var style = {
+    base: {
+      color: '#32325d',
+      lineHeight: '18px',
+      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4'
+      }
+    },
+    invalid: {
+      color: 'fa755a',
+      iconColor: '#fa755a'
+    }
+  };
+
+  var card = elements.create('card', {style: style});
+  card.mount('#card-element');
+
+  //handle form submission
+  function stripeTokenHandler(stripe_token, access_token, plan, id_token){
+
+    //submit token with ajax
+    $.ajax({
+      url: "https://staging-api.qanairy.com/subscribe",
+      type: 'PUT',
+      datatype : "application/json",
+      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+      headers: {
+        "Authorization": "Bearer " +access_token
+      },
+      data: {plan : plan, source_token: stripe_token.id},
+      success: function(data){
+        localStorage.setItem("access_token", access_token);
+
+        console.log("Successfully processed subscription");
+
+        //navigate user to app
+        window.location.href = "https://staging-app.qanairy.com?accessToken="+access_token+"&idToken="+id_token;
+      },
+      onFailure: function(err) {
+        console.log("Error occurred while processing subscription request "+err);
+      }
+    });
+  };
+
+
+
+  var auth0 = new auth0.WebAuth({
+    domain: "staging-qanairy.auth0.com",
+    clientID:  "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",//"wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV",
+    responseType: "token id_token",
+    audience: "https://staging-api.qanairy.com",
+    scope: "openid profile email read:domains delete:domains update:domains create:domains create:accounts read:accounts delete:accounts update:accounts read:tests update:tests read:groups update:groups create:groups delete:groups run:tests start:discovery read:actions"
+  });
+
+  $("#signup-button").on('click',  function(){
+    console.log("signup clicked");
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://staging-qanairy.auth0.com/dbconnections/signup",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "data": {
+        "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+        "email": $('#signup_email').val(),
+        "password": $('#signup_password').val(),
+        "connection": "Username-Password-Authentication",
+        "user_metadata" :{
+          "subscription_plan": $('#subscription').val()
+        }
+      }
+    };
+
+    console.log("signup clicked");
+
+    auth0.signupAndAuthorize(settings.data, function(err, res){
+      if(!err){
+        stripe.createToken(card).then(function(result){
+          if(result.error){
+            //inform the user there was an error
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+          }
+          else {
+            //update user subscription
+            //send token to the server
+            stripeTokenHandler(result.token, res.accessToken, "pro", res.idToken);
+          }
+        });
+      }
+    });
+  });
+</script>
+
     </body>
 </html>
