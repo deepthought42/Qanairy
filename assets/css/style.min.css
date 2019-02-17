@@ -828,10 +828,6 @@ p:last-child {
 	.feature-text p, .feature-text h3, .feature-text h4{
     text-align: left !important;
   }
-	.navbar-nav > li {
-		margin: 0 20px !important;
-		width: 100% !important;
-	}
   h1 {
     font-size: 30px;
     line-height: 38px;
@@ -1183,7 +1179,6 @@ ul li {
   border: none;
   background-color: rgba(0, 0, 0, 0.9);
   min-height: 90px;
-  padding: 20px 0 20px 0;
   margin-bottom: 0;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -1198,24 +1193,11 @@ ul li {
 	width:auto;
 	height: 38px;
 }
-.navbar-right {
-  margin-right: 0;
-}
-.navbar-nav > li {
-  padding: 0 15px;
-}
-.navbar-nav > li:last-child {
-  padding-right: 0;
-}
-.navbar-nav{
-  margin-left:0px !important;
-}
 .navbar-nav > li > a {
   color: #fff;
   font-size: 18px;
   padding: 15px 0;
   font-family: 'Open Sans', sans-serif;
-
 }
 .navbar.active {
   padding: 6px 0 8px 0;
