@@ -1177,8 +1177,7 @@ ul li {
 */
 .navbar {
   border: none;
-  background-color: rgba(0, 0, 0, 0.9);
-  min-height: 90px;
+  background-color: rgba(5, 5, 5, 0.92);
   margin-bottom: 0;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -1189,15 +1188,25 @@ ul li {
   -moz-osx-font-smoothing: grayscale;
 }
 .navbar-brand img {
-  margin-top: -5px;
 	width:auto;
 	height: 38px;
 }
+.navbar-dark .navbar-nav .nav-link{
+    color: rgba(255,255,255,.6) ;
+}
+.navbar-nav > li > a:hover,
+.navbar-nav  > li > a:focus{
+    color: rgba(255,255,255,.9) !important;
+}
 .navbar-nav > li > a {
-  color: #fff;
-  font-size: 18px;
-  padding: 15px 0;
+  color: rgba(255,255,255,.5) ;
+  font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+}
+@media only screen and (max-width:767px){
+.navbar-nav > li > a {
+  font-size: 18px;
+}
 }
 .navbar.active {
   padding: 6px 0 8px 0;
@@ -1210,27 +1219,6 @@ ul li {
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:focus {
   color: #fff;
-}
-.navbar-nav > li > a:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  bottom: 3px;
-  left: 0;
-  background-color: #fff;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-.navbar-nav > li > a:hover:before,
-.navbar-nav > li.active > a:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-  background-color: #fff;
 }
 .navbar-nav > li > a .fa {
   color: #f03c4d;
