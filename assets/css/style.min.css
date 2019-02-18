@@ -1179,6 +1179,7 @@ ul li {
   border: none;
   background-color: rgba(5, 5, 5, 0.92);
   margin-bottom: 0;
+  min-height: 60px;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -1190,6 +1191,9 @@ ul li {
 .navbar-brand img {
 	width:auto;
 	height: 38px;
+}
+.navbar-brand{
+padding: 3px 0px;
 }
 .navbar-dark .navbar-nav .nav-link{
     color: rgba(255,255,255,.6) ;
@@ -2051,13 +2055,16 @@ margin-left: 10px;
 
 .left-footer {
   text-align:left;
-	margin-bottom:20px;
 }
 
 .right-footer {
 	text-align:right;
-		margin-bottom:20px;
 }
+@media only screen and (max-width: 767px) {
+.left-footer {
+		margin-bottom:15px;
+}
+  }
 
 .footer	a {
 		color: #fff;
