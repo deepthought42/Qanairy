@@ -789,11 +789,12 @@ p:last-child {
 	display: block !important;
 	}
 		.screenshot{
-		order: 2 !important;
+		order: 1 !important;
 	}
 
 	.callout{
-		order: 1 !important;
+		order: 2 !important;
+    text-align: center;
 	}
 	
 	.Fill {
@@ -1105,14 +1106,15 @@ ul li {
 .screenshot{	
 	align-self: flex-end;
   padding-top: 30px;
-	order: 1;
+	order: 2;
+  text-align: center;
 }
 
 .callout {
 	align-self:center;
   margin-top: 30px;
   margin-bottom: 30px;
-	order: 2;
+	order: 1;
 }
 
 
