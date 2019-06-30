@@ -2,11 +2,10 @@
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-main > .Site-content {
-  padding: 60px 0px 0px;
+main > .site-content {
 }
 
-.footer > .Site-content {
+.footer > .site-content{
   padding-right: 15px;
   padding-left: 15px;
 }
