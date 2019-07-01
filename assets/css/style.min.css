@@ -250,7 +250,7 @@ p:last-child {
  */
 .section-separator {
   display: block;
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 60px;
 }
 .section-separator.sp-top {
@@ -950,13 +950,14 @@ ul li {
 }
 
 .section-separator-first {
+  
 }
 
 .home .section-separator-first{
   padding-top: 120px;
   padding-bottom: 0px;
 }
-.features .section-separator-first, .about .section-separator-first, .pricing .section-separator-first {
+.features .section-separator-first, .pricing .section-separator-first {
   padding-top: 120px;
   padding-bottom: 60px;
 }
@@ -1115,6 +1116,9 @@ padding: 3px 0px;
 | How it Works
 |===================
 */
+  .how {
+    padding-bottom: 60px;
+  }
 .service {
   text-align: center;
 }
@@ -1291,11 +1295,12 @@ padding-right:30px;
 */
 
 .about{
-	text-align: center;
 }
 .about .section-separator{
-	padding-bottom:80px;
+	padding-bottom:60px;
+    padding-top: 120px;
 }
+
 .about p, .about a{
 	text-align: left;
 }
@@ -1326,7 +1331,11 @@ padding-right:30px;
 	padding: 0 3%;
 	width: 100%;
 }
-
+.blurb .selenium img{
+	max-height: 340px;
+	padding: 0 3%;
+  width: auto;
+}
 .blurb p{
 	font-size: 20px;
 	line-height: 34px;
@@ -1410,7 +1419,7 @@ padding-right:30px;
 
 .quote .section-separator{
 	padding-top:60px;
-	padding-bottom:60px;
+	padding-bottom:30px;
 }
 
 .quote p{
@@ -1730,6 +1739,9 @@ padding-right:30px;
   margin-left: 20px;
   padding: inherit;
 }
+.email-btn{
+  float: right;
+}
 .contact-btn .fa {
   margin-left: 0;
 }
@@ -1945,7 +1957,9 @@ margin-left: 10px;
 
 }
 @media only screen and (max-width: 991px) {
-	
+	.blurb{
+	text-align: center;
+}
 	.remove-991{
 		display: none !important;
 	}
@@ -2005,6 +2019,11 @@ margin-left: 10px;
     line-height: 36px;
     font-weight: 400;
   }
+  h3 {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 400;
+  }
   /**
      * ------------------------------------
      *  Every Section Headline Defult Class
@@ -2029,7 +2048,7 @@ margin-left: 10px;
      */
   .section-separator {
     display: block;
-    padding-top: 60px;
+    padding-top: 40px;
     padding-bottom: 60px;
   }
   /**
@@ -2062,6 +2081,9 @@ margin-left: 10px;
   width: 100%;
   margin-left: 0px;
   }
+  .email-btn{
+  float: none;
+}
 .navbar-nav > li > a {
   font-size: 18px;
 }
