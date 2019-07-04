@@ -457,6 +457,36 @@ p:last-child {
 .btn-text-link a {
   margin-left: 10px;
 }
+.btn-login{
+      display: inline-block;
+    padding: 3px 12px !important;
+    margin-bottom: 0;
+    min-height: 40px;
+    min-width: 140px !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 16px  !important;
+    font-weight: normal !important;
+    line-height: 1.42857143;
+    text-transform: capitalize  !important;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 0px solid transparent;
+    border-radius: 4px !important;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  margin-left:10px;
+}
 /**
  * -----------------
  * Social Icon Style
@@ -778,8 +808,8 @@ p:last-child {
 */
 h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 44px;
-  line-height: 54px;
+  font-size: 40px;
+  line-height: 50px;
   font-weight: 600;
 }
 h2 {
@@ -829,6 +859,10 @@ p {
 }
 .float-left{
 	float: left;
+}
+#steps{
+	margin-top:-60px;
+	padding-top:70px;
 }
 #signup_form{
 	margin-bottom:30px;
@@ -890,7 +924,7 @@ p {
   border-radius: 50px;
   position: relative;
   z-index: 1;
-  padding: 20px 50px;
+  padding: 20px 30px;
   display: inline-block;
   text-align: center;
   letter-spacing: 1px;
@@ -1981,20 +2015,18 @@ margin-left: 10px;
 	.Fill {
   display: block !important;  
 }
-
-
-
 	h1 {
 		font-size: 40px;
 		line-height: 52px;
 		text-align: center;
 	}
-	.left-footer {
-		text-align: !important;
-	}
-	.right-footer {
-		text-align: !important;
-	}
+  .btn-login {
+  width: 100%;
+  margin-left: 0px;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
 }
 @media only screen and (max-width: 767px) {
   /**
@@ -2011,9 +2043,14 @@ margin-left: 10px;
     text-align: left !important;
   }
   h1 {
-    font-size: 40px;
-    line-height: 46px;
+    font-size: 36px;
+    line-height: 42px;
   }
+  .home .home-content p {
+	line-height: 24px;
+	font-size: 16px;
+	letter-spacing: 0px;
+}
   h2 {
     font-size: 30px;
     line-height: 36px;
@@ -2078,6 +2115,10 @@ margin-left: 10px;
     height: auto;
   }
   .contact-btn {
+  width: 100%;
+  margin-left: 0px;
+  }
+   .btn-login {
   width: 100%;
   margin-left: 0px;
   }
