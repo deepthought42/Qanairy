@@ -10,7 +10,7 @@
 6.  ABOUT
 7.  TESTIMONIAL
 8.  FAQ
-9.  QUATE
+9.  QUOTE
 10. SUBSCRIBE
 11. PRICING
 12. BLOG
@@ -1784,10 +1784,31 @@ padding-right:30px;
 }
 /*
 |===================
-| PRICING
+| ROADMAP
 |===================
 */
-
+.release_note{
+  padding-top:3px;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+}
+.release_date{
+  font-size: 14px;
+  color: #999;
+}
+.release_title{
+  font-size: 18px;
+  letter-spacing: .5px;
+  font-weight: bold;
+  line-height: 1.5em;
+  color: #583ec2;
+}
+.release_version{
+  font-size: 14px;
+  color: #999;
+}
 
 /*
 |===================
