@@ -487,31 +487,7 @@ p:last-child {
     transition: all 0.3s;
   margin-left:10px;
 }
-/**
- * -----------------
- * Social Icon Style
- * -----------------
- */
-.social-icon {
-  display: inline-block;
-}
-.social-icon li {
-  list-style: none;
-  float: left;
-  margin-bottom: 0px;
-}
-.social-icon li a {
-  font-size: 25px;
-  text-align: center;
-  width: 45px;
-  height: 45px;
-  padding: 10px;
-  border-radius: 50%;
-  margin-right: 15px;
-}
-.social-icon li:last-child a {
-  margin-right: 0px;
-}
+
 /**
  * -----------------------------------
  * Subscription and contact  "MESSAGE"
@@ -2218,37 +2194,11 @@ margin-left: 10px;
 #msgSubmit {
   margin-top: 0 !important;
 }
-.social {
-  margin-top: 30px;
-}
-.social ul li {
-  display: inline-block;
-  margin: auto 6px;
-}
-.social ul li a {
-  height: 40px;
-  width: 40px;
-  background: #111;
-  opacity: 0.7;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 42px;
-}
-.social ul li a .fa {
-  opacity: 1;
-}
-.social ul li a:hover {
-  background-color: #009688;
-  color: #fff;
-  opacity: 1;
-}
-.social ul li:first-child {
-  margin-left: 0;
-}
-.social ul li:last-child {
-  margin-right: 0;
-}
+/**
+ * -----------------
+ * Social Icon Style
+ * -----------------
+ */
 .contact ul li {
   margin-bottom: 0;
 }
@@ -2264,6 +2214,41 @@ margin-left: 10px;
 .urgent-contact .email a {
   color: #111;
   opacity: 0.8;
+}
+.social-item h3, .social-item h4 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: #111;
+  opacity: 0.9;
+}
+
+.social-item {
+  padding: 10px 5px;
+}
+
+.social-icon {
+  display: inline-block;
+}
+
+.social {
+  margin-top: 0px;
+  text-align: center;
+}
+ .social a{
+		color: #583ec2;
+		text-decoration:none;
+		border: none;
+	}
+ .social a:link { color: #583ec2; text-decoration:none;}
+.social a:visited { color: #583ec2; text-decoration:none;}
+ .social a:hover { color: #4a34a0 !important; text-decoration:none;}
+ .social a:active { color: #4a34a0 !important; text-decoration:none;
+}
+.social-icon {
+padding-top:2px;
+  padding-right:15px;
+	font-size: 30px;
+	color:#583ec2; 
 }
 /*
 |===================
