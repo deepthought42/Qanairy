@@ -30,16 +30,12 @@
         <!-- GOOGLE FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-        <script type="text/javascript">
-            window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
-              heap.load("544963075");
-        </script>
         <!-- Start of HubSpot Embed Code -->
         <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4077132.js"></script>
         <!-- End of HubSpot Embed Code -->
 
     </head>
-      
+
  <body class="d-flex flex-column h-100">
 <header>
   <!-- Fixed navbar -->
@@ -81,7 +77,7 @@
           </div>
         </li>
       </ul>
-      <a  class="btn btn-login" href="http://app.qanairy.com" role="button" aria-pressed="true">Log In/Sign Up</a>
+      <a  class="btn btn-login" href="http://staging-app.qanairy.com" role="button" aria-pressed="true">Log In/Sign Up</a>
     </div>
   </nav>
 </header>
@@ -89,10 +85,10 @@
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
   <div class="container">
-    
-    
-    
-    
+
+
+
+
     				<!--
         |========================
         |     SIGNUP
@@ -174,9 +170,9 @@
             </p>
         </div>
         <div class="col-md-6 right-footer">
-            <p><a href="http://app.qanairy.com/terms.html">Terms of Use</a>
+            <p><a href="http://staging-app.qanairy.com/terms.html">Terms of Use</a>
               &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="http://app.qanairy.com/privacy.html">Privacy Policy</a>
+          <a href="http://staging-app.qanairy.com/privacy.html">Privacy Policy</a>
             </p>
         </div>
       </div>
@@ -216,114 +212,123 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-<script src="https://cdn.auth0.com/js/auth0/9.8.1/auth0.min.js"></script>
-<script src="https://js.stripe.com/v3/"></script>
+  <script src="https://cdn.auth0.com/js/auth0/9.8.1/auth0.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
 
-<script>
+  <script>
 
-  var stripe = Stripe('pk_live_44mv3UzkcOxPpEk0LSXSQxsE');
+    var stripe = Stripe('pk_live_44mv3UzkcOxPpEk0LSXSQxsE');
 
-  var elements = stripe.elements();
+    var elements = stripe.elements();
 
-  var style = {
-    base: {
-      color: '#32325d',
-      lineHeight: '18px',
-      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-      fontSmoothing: 'antialiased',
-      fontSize: '16px',
-      '::placeholder': {
-        color: '#aab7c4'
-      }
-    },
-    invalid: {
-      color: 'fa755a',
-      iconColor: '#fa755a'
-    }
-  };
-
-  var card = elements.create('card', {style: style});
-  card.mount('#card-element');
-
-  //handle form submission
-  function stripeTokenHandler(stripe_token, access_token, plan, id_token){
-
-    //submit token with ajax
-    $.ajax({
-      url: "https://api.qanairy.com/subscribe",
-      type: 'PUT',
-      datatype : "application/json",
-      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-      headers: {
-        "Authorization": "Bearer " +access_token
-      },
-      data: {plan : plan, source_token: stripe_token.id},
-      success: function(data){
-        localStorage.setItem("access_token", access_token);
-
-        console.log("Successfully processed subscription");
-
-        //navigate user to app
-        window.location.href = "https://app.qanairy.com?accessToken="+access_token+"&idToken="+id_token;
-      },
-      onFailure: function(err) {
-        console.log("Error occurred while processing subscription request "+err);
-      }
-    });
-  };
-
-
-
-  var auth0 = new auth0.WebAuth({
-    domain: "qanairy.auth0.com",
-    clientID:  "wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV", //"mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
-    responseType: "token id_token",
-    audience: "https://api.qanairy.com",
-    scope: "openid profile email read:domains delete:domains update:domains create:domains create:accounts read:accounts delete:accounts update:accounts read:tests update:tests read:groups update:groups create:groups delete:groups run:tests start:discovery read:actions"
-  });
-
-  $("#signup-button").on('click',  function(){
-    console.log("signup clicked");
-
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "https://qanairy.auth0.com/dbconnections/signup",
-      "method": "POST",
-      "headers": {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      "data": {
-        "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
-        "email": $('#signup_email').val(),
-        "password": $('#signup_password').val(),
-        "connection": "Username-Password-Authentication",
-        "user_metadata" :{
-          "subscription_plan": $('#subscription').val()
+    var style = {
+      base: {
+        color: '#32325d',
+        lineHeight: '18px',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#aab7c4'
         }
+      },
+      invalid: {
+        color: 'fa755a',
+        iconColor: '#fa755a'
       }
     };
 
-    console.log("signup clicked");
+    var card = elements.create('card', {style: style});
+    card.mount('#card-element');
 
-    auth0.signupAndAuthorize(settings.data, function(err, res){
-      if(!err){
-        stripe.createToken(card).then(function(result){
-          if(result.error){
-            //inform the user there was an error
-            var errorElement = document.getElementById('card-errors');
-            errorElement.textContent = result.error.message;
-          }
-          else {
-            //update user subscription
-            //send token to the server
-            stripeTokenHandler(result.token, res.accessToken, "pro", res.idToken);
-          }
-        });
-      }
+    //handle form submission
+    function stripeTokenHandler(stripe_token, access_token, plan, id_token){
+
+      //submit token with ajax
+      $.ajax({
+        url: "https://api.qanairy.com/subscribe",
+        type: 'PUT',
+        datatype : "application/json",
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        headers: {
+          "Authorization": "Bearer " +access_token
+        },
+        data: {plan : plan, source_token: stripe_token.id},
+        success: function(data){
+          localStorage.setItem("access_token", access_token);
+
+          console.log("Successfully processed subscription");
+
+          //navigate user to app
+          window.location.href = "https://staging-app.qanairy.com?accessToken="+access_token+"&idToken="+id_token;
+        },
+        onFailure: function(err) {
+          console.log("Error occurred while processing subscription request "+err);
+        }
+      });
+    };
+
+
+
+    var auth0 = new auth0.WebAuth({
+      domain: "qanairy.auth0.com",
+      clientID:  "wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV", //"mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+      responseType: "token id_token",
+      audience: "https://api.qanairy.com",
+      scope: "openid profile email read:domains delete:domains update:domains create:domains create:accounts read:accounts delete:accounts update:accounts read:tests update:tests read:groups update:groups create:groups delete:groups run:tests start:discovery read:actions"
     });
-  });
-</script>
 
-    </body>
+    $("#signup-button").on('click',  function(){
+      console.log("signup clicked");
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://qanairy.auth0.com/dbconnections/signup",
+        "method": "POST",
+        "headers": {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+          "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+          "email": $('#signup_email').val(),
+          "password": $('#signup_password').val(),
+          "connection": "Username-Password-Authentication",
+          "user_metadata" :{
+            "subscription_plan": $('#subscription').val()
+          }
+        }
+      };
+
+      console.log("signup clicked");
+
+      auth0.signupAndAuthorize(settings.data, function(err, res){
+        if(!err){
+          stripe.createToken(card).then(function(result){
+            if(result.error){
+              //inform the user there was an error
+              var errorElement = document.getElementById('card-errors');
+              errorElement.textContent = result.error.message;
+            }
+            else {
+              //update user subscription
+              //send token to the server
+              stripeTokenHandler(result.token, res.accessToken, "pro", res.idToken);
+            }
+          });
+        }
+      });
+    });
+  </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-88291830-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
 </html>
