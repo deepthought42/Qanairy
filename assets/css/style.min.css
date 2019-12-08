@@ -948,7 +948,7 @@ ul li {
 
 /*
 |===================
-| 
+|
 |===================
 */
 .home {
@@ -959,17 +959,14 @@ ul li {
   color: #fff;
 }
 
-.section-separator-first {
-  
-}
-
 .home .section-separator-first{
   padding-top: 120px;
   padding-bottom: 0px;
 }
+
 .features .section-separator-first, .pricing .section-separator-first {
   padding-top: 120px;
-  padding-bottom: 60px;
+  padding-bottom: 0px;
 }
 
 .headline {
@@ -982,12 +979,12 @@ ul li {
 
 .home-content{
 }
-.header-img{	
+.header-img{
   padding-top: 30px;
 }
 
 
-.screenshot{	
+.screenshot{
 	align-self: flex-end;
   padding-top: 30px;
 	order: 1;
@@ -1269,7 +1266,7 @@ padding: 3px 0px;
 .feature-icon {
 padding-right:30px;
 	font-size: 50px;
-	color:#fddc05; 
+	color:#fddc05;
 }
 
 .flex-auto {
@@ -1397,7 +1394,7 @@ padding-right:30px;
   }
 }
 .Fill {
-  display: flex;  
+  display: flex;
 }
 
 .Fill-content-a {
@@ -1462,7 +1459,7 @@ padding-right:30px;
 
 .quote {
 	background: linear-gradient(
-                     rgba(20,20,20, .7), 
+                     rgba(20,20,20, .7),
                      rgba(20,20,20, .7)), url(../images/cages.png) no-repeat top;
 	background-size:cover;
 	  position: relative;
@@ -1852,7 +1849,7 @@ padding-right:30px;
 	padding-right:10px;
 	font-size: 22px;
 	line-height: 24px;
-	color:#fddc05; 
+	color:#fddc05;
 }
 
 .price-container {
@@ -1873,7 +1870,7 @@ padding-right:30px;
 padding:20px 20px 40px 20px;
 	background-color: #f5f5f5;
 	border-radius: 5px;
-	
+
   border: 1px solid #eaeaea;
 	background-color: #fff;
 	margin-top: 15px;
@@ -2000,7 +1997,7 @@ margin-left: 10px;
   -ms-box-shadow: 0 21px 65px 0 rgba(0, 0, 0, 0.12) ;
   -o-box-shadow: 0 21px 65px 0 rgba(0, 0, 0, 0.12) ;
   box-shadow: 0 21px 65px 0 rgba(0, 0, 0, 0.12) ;
-  -webkit-transform: translateX(0) translateY(-5px) translateZ(0) rotate(0deg) scale(1) ; 
+  -webkit-transform: translateX(0) translateY(-5px) translateZ(0) rotate(0deg) scale(1) ;
   -moz-transform: translateX(0) translateY(-5px) translateZ(0) rotate(0deg) scale(1) ;
   -ms-transform: translateX(0) translateY(-5px) translateZ(0) rotate(0deg) scale(1) ;
   -o-transform: translateX(0) translateY(-5px) translateZ(0) rotate(0deg) scale(1) ;
@@ -2052,9 +2049,9 @@ margin-left: 10px;
 	.callout{
 		order: 1 !important;
 	}
-	
+
 	.Fill {
-  display: block !important;  
+  display: block !important;
 }
 	h1 {
 		font-size: 40px;
@@ -2313,7 +2310,7 @@ margin-left: 10px;
 padding-top:2px;
   padding-right:15px;
 	font-size: 30px;
-	color:#583ec2; 
+	color:#583ec2;
 }
 /*
 |===================
