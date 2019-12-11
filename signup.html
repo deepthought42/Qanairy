@@ -98,12 +98,6 @@
 
 								<form id="signup_form">
 									<fieldset>
-                    <div class="field-title">
-                      Name
-                    </div>
-                    <p>
-                      <input class="text-left form-control" type="email" id="signup_email" placeholder="Jane Doe"  required autocomplete="name"/>
-                    </p>
 										<div class="field-title">
 											Email
 										</div>
@@ -121,7 +115,7 @@
 										</div>
 										<p class="text-left">
 											Pro - $199
-											<input type="hidden" id="subscription" required/>
+											<input type="hidden" id="subscription" required value="pro"/>
 										</p>
 									</fieldset>
 								</form>
@@ -234,25 +228,24 @@
     var card = elements.create('card', {style: style});
     card.mount('#card-element');
     //handle form submission
-    function stripeTokenHandler(stripe_token, access_token, plan, id_token){
+    function stripeTokenHandler(access_token, plan, id_token){
+      localStorage.setItem("access_token", access_token);
 
       //submit token with ajax
       $.ajax({
-        url: "https://api.qanairy.com/subscribe",
+        url: "https://staging-api.qanairy.com/subscribe",
         type: 'PUT',
         datatype : "application/json",
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         headers: {
           "Authorization": "Bearer " +access_token
         },
-        data: {plan : plan, source_token: stripe_token.id},
+        data: {plan : plan},
         success: function(data){
-          localStorage.setItem("access_token", access_token);
-
           console.log("Successfully processed subscription");
 
           //navigate user to app
-          window.location.href = "https://app.qanairy.com?accessToken="+access_token+"&idToken="+id_token;
+          window.location.href = "https://staging-app.qanairy.com?accessToken="+access_token+"&idToken="+id_token;
         },
         onFailure: function(err) {
           console.log("Error occurred while processing subscription request "+err);
@@ -261,10 +254,10 @@
     };
 
     var auth0 = new auth0.WebAuth({
-      domain: "qanairy.auth0.com",
-      clientID:  "wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV", //"mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
+      domain: "staging-qanairy.auth0.com",
+      clientID:  "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6", //"wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV",
       responseType: "token id_token",
-      audience: "https://api.qanairy.com",
+      audience: "https://staging-api.qanairy.com",
       scope: "openid profile email read:domains delete:domains update:domains create:domains create:accounts read:accounts delete:accounts update:accounts read:tests update:tests read:groups update:groups create:groups delete:groups run:tests start:discovery read:actions"
     });
 
@@ -272,36 +265,41 @@
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://qanairy.auth0.com/dbconnections/signup",
+        "url": "https://staging-qanairy.auth0.com/dbconnections/signup",
         "method": "POST",
         "headers": {
           "content-type": "application/x-www-form-urlencoded"
         },
         "data": {
-          "client_id": "wT7Phjs9BpwEfnZeFLvK1hwHWP2kU7LV",
+          "client_id": "mMomHg1ZhzZkM4Tsz2NGkdJH3eeJqIq6",
           "email": $('#signup_email').val(),
           "password": $('#signup_password').val(),
-          "connection": "Username-Password-Authentication",
-          "user_metadata" :{
-            "subscription_plan": $('#subscription').val()
-          }
+          "connection": "Username-Password-Authentication"
         }
       };
 
+      var card_token = "";
+      stripe.createToken(card).then(function(result){
+        if(result.error){
+          //inform the user there was an error
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+        }
+        else {
+          card_token = result.token;
+
+          //navigate user to payment page
+          //window.location.href = "https://staging-app.qanairy.com?accessToken="+res.accessToken+"&idToken="+res.idToken;
+        }
+      });
+
       auth0.signupAndAuthorize(settings.data, function(err, res){
         if(!err){
-          stripe.createToken(card).then(function(result){
-            if(result.error){
-              //inform the user there was an error
-              var errorElement = document.getElementById('card-errors');
-              errorElement.textContent = result.error.message;
-            }
-            else {
-              //update user subscription
-              //send token to the server
-              stripeTokenHandler(result.token, res.accessToken, "pro", res.idToken);
-            }
-          });
+          stripeTokenHandler(res.accessToken, "pro", res.idToken);
+        }
+        else{
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
         }
       });
     });
