@@ -199,15 +199,26 @@
                   </div>-->
                 </div>
               </div>
+              <form id="payment-form" action="/create_subscription.php" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_9QwakrlLpcLEYO5Ui0JoYHvC"
+                  data-image="/images/marketplace.png"
+                  data-name="Qanairy"
+                  data-description="Monthly subscription"
+                  data-amount="19900"
+                  data-label="Buy Now!">
+                </script>
+              </form>
               <button class="btn btn--primary" onclick="document.location.href='https://staging-marketing.qanairy.com/signup.html'">
-                Select Plan
+                Buy Now!
               </button>
             </div>
           </div>
           <div id="enterprise_package">
             <div class="planframe">
-              <h1 class=" dashboard__stats text-center" style="font-size: 42px; margin-top: 20px;">Contact Us</h1>
-              <h3 class="text-center" style="margin-top: 10px; margin-bottom: 20px;">Request a Demo</h3>
+              <h1 class=" dashboard__stats text-center" style="font-size: 42px; margin-top: 20px;">Enterprise</h1>
+              <h3 class="text-center" style="margin-top: 10px; margin-bottom: 20px;">Contact Us</h3>
               <div class="" style="flex-grow: 1; padding-top: 10px; padding-bottom: 20px;">
                 <div class=" price-container"  >
                   <div class="price-column flex"  >
